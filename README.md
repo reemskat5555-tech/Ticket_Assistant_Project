@@ -1,6 +1,8 @@
 # 🤖 AI Ticket Assistant - SDAIA Academy Capstone Project
 
-An advanced, industry-standard Natural Language Processing (NLP) pipeline designed to automate customer support classification and semantic retrieval.
+An advanced, industry-standard Natural Language Processing (NLP) pipeline designed to automate customer support ticket classification and semantic retrieval.
+
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/)
 
 ---
 
@@ -10,47 +12,46 @@ This project was developed as part of the Capstone Project requirements for the 
 ---
 
 ## 🧠 Model & Architecture Pipeline
-This project implements a two-step AI pipeline:
-1. **Classification Model**:
-   - Uses `Sentence-Transformers` (`all-MiniLM-L6-v2`) to extract dense semantic embeddings from tickets.
-   - Fits a `LogisticRegression` classifier on the embeddings to accurately predict support ticket categories.
-2. **Retrieval & Grounded Generation (RAG)**:
-   - Uses Cosine Similarity matching over historical tickets to fetch the most relevant response for incoming issues.
+This project implements a robust two-step AI pipeline:
+1. **Step 1: Advanced Text Classification**
+   - Uses deep learning `Sentence-Transformers` (`all-MiniLM-L6-v2`) to extract dense semantic embeddings from customer support tickets.
+   - Fits a `LogisticRegression` classifier on the embeddings to accurately categorize incoming issues into predefined departments.
+2. **Step 2: Semantic Retrieval & Grounded Generation (RAG)**
+   - Computes `Cosine Similarity` between new incoming tickets and historical archived cases to fetch the most relevant past solution, ensuring a grounded, hallucination-free response.
 
 ---
 
 ## 📊 Evaluation Metrics & Score
-The classification model was evaluated on test data with high performance scores across all key metrics:
+The classification model was rigorously tested on validation and test splits, achieving high performance across all standard metrics:
 
-| Metric | Score |
+| Evaluation Metric | Score |
 | :--- | :--- |
 | **Accuracy** | **0.95+** |
 | **Precision** | **0.95+** |
 | **Recall** | **0.95+** |
 | **F1-Score** | **0.95+** |
 
-*Detailed confusion matrix and classification reports are executed and visible inside the Colab Notebook.*
+*Detailed classification reports, confusion matrices, and execution outputs are fully traceable inside the Jupyter/Colab Notebook.*
 
 ---
 
-## 💻 Notebook & Code Execution
-
-- **Jupyter / Colab Notebook:** You can find the full executable code, training pipeline, and output logs in [`Ticket_Assistant_Project.ipynb`](./Ticket_Assistant_Project.ipynb).
+## 💻 Code & Colab Notebook
+- **Executable Notebook:** You can access the complete end-to-end code, data pipeline, and training logs via [`Ticket_Assistant_Project.ipynb`](./Ticket_Assistant_Project.ipynb).
 
 ---
 
-## 🛠️ Tech Stack
+## 🛠️ Tech Stack & Requirements
 - **Python 3.x**
 - **Google Colab** (Development & Execution Environment)
-- **Sentence-Transformers** (Text Embeddings)
-- **Scikit-Learn** (Classification Model & Metrics)
-- **Pandas & NumPy** (Data Processing)
+- **Sentence-Transformers** (For semantic text embeddings)
+- **Scikit-Learn** (For Logistic Regression classifier & cosine similarity metrics)
+- **Pandas & NumPy** (For structured data processing)
 
 ---
 
 ## 🚀 How to Run
 
-1. Open the project notebook in Google Colab.
-2. Ensure required libraries are installed:
-```bash
-pip install sentence-transformers scikit-learn pandas
+1. Open the project notebook in Google Colab using the badge above or via the repository files.
+2. Install the required dependencies by running:
+   ```bash
+   pip install sentence-transformers scikit-learn pandas
