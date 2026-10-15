@@ -39,12 +39,13 @@ The pipeline was evaluated across iterative stages to measure the impact of data
 - **Python 3.x**
 - **Sentence-Transformers** (`intfloat/multilingual-e5-small`)
 - **Scikit-Learn** (`LogisticRegression`, `cosine_similarity`)
+- **Gradio** (Interactive Web UI Demo)
 - **Pandas & NumPy**
 
 ---
 
 ## 🚀 How to Run
-1. Clone the repository and navigate to the project folder.
-2. Install the required dependencies:
+1. Clone the repository or open the project folder.
+2. Install dependencies:
    ```bash
    pip install sentence-transformers scikit-learn pandas numpy gradio
