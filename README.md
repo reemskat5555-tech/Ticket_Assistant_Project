@@ -27,3 +27,5 @@ This project is built using a robust two-step technical pipeline:
 2. Ensure required libraries are installed:
    ```bash
    pip install sentence-transformers scikit-learn pandas
+   
+   https://github.com/SDAIAAcademy
