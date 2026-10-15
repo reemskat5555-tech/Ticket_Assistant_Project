@@ -2,8 +2,6 @@
 
 An advanced, industry-standard Natural Language Processing (NLP) pipeline designed to automate customer support ticket classification, semantic retrieval, and routing with support for English, Modern Standard Arabic (MSA), and Gulf dialects.
 
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1MRJ4xffToP926ALeTunlM3zSWhSsRT5Z)
-
 ---
 
 ## 🏛️ Academy Context
@@ -38,7 +36,7 @@ The pipeline was evaluated across iterative stages to measure the impact of data
 ---
 
 ## 🛠️ Tech Stack & Requirements
-- **Python 3.x** / **Google Colab**
+- **Python 3.x**
 - **Sentence-Transformers** (`intfloat/multilingual-e5-small`)
 - **Scikit-Learn** (`LogisticRegression`, `cosine_similarity`)
 - **Pandas & NumPy**
@@ -46,7 +44,7 @@ The pipeline was evaluated across iterative stages to measure the impact of data
 ---
 
 ## 🚀 How to Run
-1. Open the executable notebook in Google Colab using the badge above.
-2. Install dependencies:
+1. Clone the repository and navigate to the project folder.
+2. Install the required dependencies:
    ```bash
    pip install sentence-transformers scikit-learn pandas numpy gradio
