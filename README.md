@@ -1,57 +1,52 @@
-# 🤖 AI Ticket Assistant - SDAIA Academy Capstone Project
+# 🤖 AI Ticket Assistant - SDAIA Academy Applied NLP Capstone
 
-An advanced, industry-standard Natural Language Processing (NLP) pipeline designed to automate customer support ticket classification and semantic retrieval.
+An advanced, industry-standard Natural Language Processing (NLP) pipeline designed to automate customer support ticket classification, semantic retrieval, and routing with support for English, Modern Standard Arabic (MSA), and Gulf dialects.
 
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1MRJ4xffToP926ALeTunlM3zSWhSsRT5Z)
 
 ---
 
 ## 🏛️ Academy Context
-This project was developed as part of the Capstone Project requirements for the **[SDAIA Academy](https://github.com/SDAIAAcademy/)** AI Program.
+This project was developed as an individual capstone project for the **[SDAIA Academy](https://github.com/SDAIAAcademy/)** Applied NLP Engineering course.
 
 ---
 
 ## 🧠 Model & Architecture Pipeline
-This project implements a robust two-step AI pipeline:
-1. **Step 1: Advanced Text Classification**
-   - Uses deep learning `Sentence-Transformers` (`all-MiniLM-L6-v2`) to extract dense semantic embeddings from customer support tickets.
-   - Fits a `LogisticRegression` classifier on the embeddings to accurately categorize incoming issues into predefined departments.
-2. **Step 2: Semantic Retrieval & Grounded Generation (RAG)**
-   - Computes `Cosine Similarity` between new incoming tickets and historical archived cases to fetch the most relevant past solution, ensuring a grounded, hallucination-free response.
+1. **Multilingual Encoder (Frozen):** Uses `intfloat/multilingual-e5-small` to generate 384-dimensional dense semantic embeddings for both English and multi-dialect Arabic tickets (requiring the `query:` and `passage:` prefixes).
+2. **Classifier:** Trained using `LogisticRegression` ($C=20$, max_iter=3000) on the extracted embeddings.
+3. **Abstain Routing ($\tau$):** Implements a confidence threshold ($\tau$) to automatically route low-confidence predictions to human review rather than mislabeling them.
 
 ---
 
-## 📊 Evaluation Metrics & Score
-The classification model was rigorously tested on validation and test splits, achieving high performance across all standard metrics:
+## 📊 Evaluation & Development Stages (M0 to M3)
+The pipeline was evaluated across iterative stages to measure the impact of data expansion, threshold tuning, and leakage control. Results are tracked and exported directly from execution logs.
 
-| Evaluation Metric | Score |
-| :--- | :--- |
-| **Accuracy** | **0.95+** |
-| **Precision** | **0.95+** |
-| **Recall** | **0.95+** |
-| **F1-Score** | **0.95+** |
+| Version | Description | Macro-F1 (Overall) | Abstain Rate (%) |
+| :--- | :--- | :--- | :--- |
+| **M0 (Baseline)** | English baseline model, $\tau=0.5$ | 0.3333 | 0.0% |
+| **M1 (Threshold Tuned)** | Baseline model with threshold tuning | 0.3333 | 50.0% |
+| **M2 (Synthetic Data Added)** | Added synthetic Arabic/Gulf training data | 0.6667 | 25.0% |
+| **M3 (Leakage Checked & Cleaned)** | Cleaned near-duplicates ($>0.95$ similarity) | 0.6667 | 75.0% |
 
-*Detailed classification reports, confusion matrices, and execution outputs are fully traceable inside the Jupyter/Colab Notebook.*
+*The complete execution results are saved in `model_evaluation_results.csv` inside the repository.*
 
 ---
 
-## 💻 Code & Colab Notebook
-- **Executable Notebook:** You can access the complete end-to-end code, data pipeline, and training logs via [`Ticket_Assistant_Project.ipynb`](./Ticket_Assistant_Project.ipynb).
+## 🔍 Leakage Check & Validation
+- **Semantic Leakage Control:** Computed cosine similarity matrices between training and test sets. Any training sentence with a similarity $>0.95$ to test sentences was monitored and cleaned to ensure true generalization rather than memorization.
 
 ---
 
 ## 🛠️ Tech Stack & Requirements
-- **Python 3.x**
-- **Google Colab** (Development & Execution Environment)
-- **Sentence-Transformers** (For semantic text embeddings)
-- **Scikit-Learn** (For Logistic Regression classifier & cosine similarity metrics)
-- **Pandas & NumPy** (For structured data processing)
+- **Python 3.x** / **Google Colab**
+- **Sentence-Transformers** (`intfloat/multilingual-e5-small`)
+- **Scikit-Learn** (`LogisticRegression`, `cosine_similarity`)
+- **Pandas & NumPy**
 
 ---
 
 ## 🚀 How to Run
-
-1. Open the project notebook in Google Colab using the badge above or via the repository files.
-2. Install the required dependencies by running:
+1. Open the executable notebook in Google Colab using the badge above.
+2. Install dependencies:
    ```bash
-   pip install sentence-transformers scikit-learn pandas
+   pip install sentence-transformers scikit-learn pandas numpy gradio
