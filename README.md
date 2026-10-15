@@ -1,10 +1,15 @@
-# 🎫 AI Ticket Assistant - SDAIA Academy Capstone Project
+# 🤖 AI Ticket Assistant - SDAIA Academy Capstone Project
 
-An advanced, industry-standard Natural Language Processing (NLP) pipeline designed to automate customer support ticket classification and semantic retrieval.
+An advanced, industry-standard Natural Language Processing (NLP) pipeline designed to automate customer support classification and semantic retrieval.
 
 ---
 
-## 📌 Project Architecture & Pipeline
+## 🏛️ Academy Context
+This project was developed as part of the Capstone Project requirements for the **[SDAIA Academy](https://github.com/SDAIAAcademy/)** AI Program.
+
+---
+
+## 🛠️ Project Architecture & Pipeline
 This project is built using a robust two-step technical pipeline:
 1. **Step 1: Advanced Text Classification**
    - Utilizes deep learning `Sentence-Transformers` (`all-MiniLM-L6-v2`) and a `LogisticRegression` classifier to accurately categorize incoming support tickets.
@@ -23,12 +28,8 @@ This project is built using a robust two-step technical pipeline:
 ---
 
 ## 🚀 How to Run
+
 1. Open the project notebook in Google Colab.
 2. Ensure required libraries are installed:
    ```bash
    pip install sentence-transformers scikit-learn pandas
-   
-
-
-
-      https://github.com/SDAIAAcademy
