@@ -52,5 +52,5 @@ The classification model was evaluated on test data with high performance scores
 
 1. Open the project notebook in Google Colab.
 2. Ensure required libraries are installed:
-   ```bash
-   pip install sentence-transformers scikit-learn pandas
+```bash
+pip install sentence-transformers scikit-learn pandas
